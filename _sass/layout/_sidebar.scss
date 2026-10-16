@@ -22,10 +22,6 @@
     overflow-y: auto;               // Add scrollbar if the sidebar is too long
     position: fixed;
     padding-top: $masthead-height;
-
-    /* widen the fixed sidebar so a larger avatar fits without overlapping content */
-    width: 520px;
-    left: 0;
   }
 
   @include breakpoint($large) {
@@ -39,7 +35,7 @@
     }
   }
 
-  @include breakpoint($x-large) {
+  @include breakpoint($large) {
     max-width: $sidebar-link-max-width;
     padding-right: 0;
   }
@@ -61,13 +57,6 @@
 
   img {
     width: 100%;
-  }
-}
-
-/* keep the main column offset so it doesn't sit underneath the fixed sidebar */
-@media screen and (min-width: $sidebar-screen-min-width) {
-  #main {
-    padding-left: 560px; /* sidebar width (520px) + 40px gap */
   }
 }
 
@@ -154,7 +143,7 @@
 .author__avatar {
   display: table-cell;
   vertical-align: top;
-  width: 48px;
+  width: 36px;
   // set width only, for non-square avatars
   // height: 36px;
 
@@ -165,8 +154,7 @@
   }
 
   img {
-    /* doubled size for a more prominent avatar */
-    max-width: 440px;
+    max-width: 175px;
     border-radius: 10%;
 
     @include breakpoint($x-large) {
@@ -179,8 +167,8 @@
 .author__content {
   display: table-cell;
   vertical-align: top;
-  padding-left: 20px;
-  padding-right: 30px;
+  padding-left: 15px;
+  padding-right: 25px;
   line-height: 1;
 
   @include breakpoint($large) {
@@ -192,12 +180,12 @@
 }
 
 .author__name {
-  margin: 0 0 1rem 0; /* add slight space below the name */
+  margin: 0 0 1rem 0; /* increase spacing below the name so location sits lower */
   font-size: $type-size-4;
 
   @include breakpoint($large) {
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 1rem; /* keep the same spacing on large screens */
   }
 }
 .sidebar .author__name {
@@ -223,7 +211,6 @@
 
 .author__bio {
   margin: 0;
-  font-size: $type-size-5;
 
   @include breakpoint($large) {
     margin-top: 10px;
@@ -239,7 +226,7 @@
   z-index: 10;
   position: relative;
   cursor: pointer;
-  margin-top: 0.5rem;
+  margin-top: 0.5rem; /* push the follow block down a bit */
 
   @include breakpoint($large) {
     display: block;
