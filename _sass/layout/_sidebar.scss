@@ -180,7 +180,7 @@
 }
 
 .author__name {
-  margin: 0 0 1rem 0; /* add slight space below the name */
+  margin: 0 0 0.5rem 0; /* add slight space below the name */
   font-size: $type-size-4;
 
   @include breakpoint($large) {
@@ -227,15 +227,17 @@
   z-index: 10;
   position: relative;
   cursor: pointer;
+  margin-top: 0.5rem;
+
+  @include breakpoint($large) {
+    display: block;
+    margin-top: 1rem;
+  }
 
   li:last-child {
     a {
       margin-bottom: 0;
     }
-  }
-
-  @include breakpoint($large) {
-    display: block;
   }
 
   button {
