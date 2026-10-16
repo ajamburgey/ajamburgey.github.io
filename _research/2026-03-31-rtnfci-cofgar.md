@@ -7,7 +7,7 @@ title: "Growth-at-Risk is Investment-at-Risk (with Michael W. McCracken)"
 collection: research
 category: publications   # working_papers | publications | work_in_progress
 permalink: /research/rtnfci-cofgar
-date: 2025-01-01
+date: 2026-03-31
 excerpt: 'We investigate the role financial conditions play in the composition of U.S.
 growth-at-risk. We document that, by a wide margin, growth-at-risk is
 investment-at-risk. That is, if financial conditions indicate U.S. real GDP
@@ -23,7 +23,7 @@ support to the financial accelerator mechanism proposed by Bernanke et al.
 # slidesurl: '/files/my-slides.pdf'
 # bibtexurl: '/files/my-paper.bib'
 venue: 'accepted at The Review of Economics and Statistics'
-link: '/files/RTNFCI_CofGAR.pdf'
+link: '/files/RTNFCI_CofGAR_03_31_26.pdf'
        # makes the title link here instead of to this paper's own page
 ---
 
