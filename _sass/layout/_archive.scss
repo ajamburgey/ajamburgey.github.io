@@ -84,7 +84,8 @@
     box-shadow: 0 0 10px rgba(#000, 0.25);
   }
 
-  .archive__item-title {
+  // only the links, so a Research entry's italic venue isn't underlined too
+  .archive__item-title a {
     text-decoration: underline;
   }
 }
