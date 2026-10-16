@@ -17,8 +17,9 @@
   /* keep footer in normal document flow so custom widgets do not overlap content */
   height: auto;
 
-  /* keep the footer on the bottom of the page */
-  position: fixed;
+  /* sit at the end of the page (not pinned to the window); the space for it is
+     reserved by the body margin set in assets/js/_main.js */
+  position: absolute;
   bottom: 0;
 
   -webkit-animation: intro 0.3s both;

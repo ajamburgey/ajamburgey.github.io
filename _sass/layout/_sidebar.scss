@@ -17,11 +17,17 @@
     margin-top: 1em;
   }
 
+  // Stick just below the masthead while scrolling, but stay inside #main so the
+  // footer pushes the sidebar up instead of covering it
   @media screen and (min-width: $sidebar-screen-min-width) {
-    height: 100vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: calc(#{$masthead-height} + 1em);
+    max-height: calc(100vh - #{$masthead-height} - 1em);
     overflow-y: auto;               // Add scrollbar if the sidebar is too long
-    position: fixed;
-    padding-top: $masthead-height;
+    // greedy-navigation.js adds masthead-height padding for a fixed sidebar;
+    // a sticky sidebar is already below the masthead, so drop it
+    padding-top: 0 !important;
   }
 
   @include breakpoint($large) {
@@ -38,12 +44,6 @@
   @include breakpoint($large) {
     max-width: $sidebar-link-max-width;
     padding-right: 0;
-  }
-
-  // The fixed sidebar's width is a percentage of the viewport, so cap it to
-  // keep it clear of the page content (which is sized off the #main container)
-  @media screen and (min-width: $sidebar-screen-min-width) {
-    max-width: 230px;
   }
 
   @include breakpoint($x-large) {
@@ -167,11 +167,11 @@
     max-width: 100%;
     border-radius: 10%;
 
-    // On short windows, shrink the photo so the links below it stay visible
-    // above the footer (the fixed sidebar can't scroll past it on short pages)
+    // On short windows, shrink the photo so the whole sticky sidebar,
+    // including the links below the photo, fits on screen
     @media screen and (min-width: $sidebar-screen-min-width) {
       width: auto;
-      max-height: calc(100vh - 330px);
+      max-height: calc(100vh - 300px);
     }
 
     @include breakpoint($x-large) {
