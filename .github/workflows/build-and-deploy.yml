@@ -33,12 +33,20 @@ jobs:
 
       - name: Compile SCSS with Dart Sass
         run: |
-          if [ -f assets/css/main.scss ]; then \
-            sass --load-path=_sass assets/css/main.scss:assets/css/main.css --no-source-map; \
-            mv assets/css/main.scss assets/css/main.scss.bak || true; \
-            if [ -d _sass ]; then mv _sass _sass.bak || true; fi; \
-          else \
-            echo "No assets/css/main.scss found — skipping dart-sass compile"; \
+          if [ -f assets/css/main.scss ]; then
+            mkdir -p .sass-temp
+            cp assets/css/main.scss .sass-temp/main.scss
+
+            sed -E "s/\{\{\s*site\.site_theme\s*\|\s*default:\s*'default'\s*\|\s*append:\s*'_light'\s*\}\}/default_light/g" .sass-temp/main.scss > .sass-temp/main.tmp
+            sed -E "s/\{\{\s*site\.site_theme\s*\|\s*default:\s*'default'\s*\|\s*append:\s*'_dark'\s*\}\}/default_dark/g" .sass-temp/main.tmp > .sass-temp/main.processed.scss
+            rm .sass-temp/main.tmp
+
+            sass --load-path=_sass .sass-temp/main.processed.scss:assets/css/main.css --no-source-map
+
+            mv assets/css/main.scss assets/css/main.scss.bak || true
+            if [ -d _sass ]; then mv _sass _sass.bak || true; fi
+          else
+            echo "No assets/css/main.scss found — skipping dart-sass compile"
           fi
 
       - name: Set up Ruby and Bundler
