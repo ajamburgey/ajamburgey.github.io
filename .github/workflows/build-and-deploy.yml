@@ -1,0 +1,73 @@
+name: Build and deploy (Jekyll + Dart Sass)
+
+on:
+  push:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-deploy-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Dart Sass (npm "sass")
+        run: npm install -g sass
+
+      - name: Compile SCSS with Dart Sass
+        # Compile the main SCSS into a single CSS file and place it where Jekyll will serve it.
+        run: |
+          if [ -f assets/css/main.scss ]; then \
+            sass --load-path=_sass assets/css/main.scss:assets/css/main.css --no-source-map; \
+            # prevent Jekyll from trying to recompile the SCSS by moving the source files out of the way
+            mv assets/css/main.scss assets/css/main.scss.bak || true; \
+            if [ -d _sass ]; then mv _sass _sass.bak || true; fi; \
+          else \
+            echo "No assets/css/main.scss found — skipping dart-sass compile"; \
+          fi
+
+      - name: Set up Ruby and Bundler
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+
+      - name: Install dependencies
+        run: |
+          gem install bundler --no-document
+          bundle config set path .bundle
+          bundle install --jobs 4 --retry 3
+
+      - name: Build the Jekyll site
+        run: bundle exec jekyll build --destination _site
+        env:
+          JEKYLL_ENV: production
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./_site
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy
+        uses: actions/deploy-pages@v1
