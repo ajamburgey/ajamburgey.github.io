@@ -31,11 +31,9 @@ jobs:
         run: npm install -g sass
 
       - name: Compile SCSS with Dart Sass
-        # Compile the main SCSS into a single CSS file and place it where Jekyll will serve it.
         run: |
           if [ -f assets/css/main.scss ]; then \
             sass --load-path=_sass assets/css/main.scss:assets/css/main.css --no-source-map; \
-            # prevent Jekyll from trying to recompile the SCSS by moving the source files out of the way
             mv assets/css/main.scss assets/css/main.scss.bak || true; \
             if [ -d _sass ]; then mv _sass _sass.bak || true; fi; \
           else \
@@ -59,7 +57,7 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./_site
 
