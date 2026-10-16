@@ -3,7 +3,7 @@
 # this one never appears on the site. To add a paper, copy it to
 # YYYY-MM-DD-short-name.md (the date sets the order: newest first in each
 # section) and fill in what applies. Delete any field you don't need.
-title: "Household Composition and the Transmission of Aggregate Shocks (w/ Ramya Raghavan)"
+title: "Household Composition and the Transmission of Aggregate Shocks (with Ramya Raghavan)"
 collection: research
 category: working_papers   # working_papers | publications | work_in_progress
 permalink: /research/household-composition
