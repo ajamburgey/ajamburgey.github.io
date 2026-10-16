@@ -158,8 +158,8 @@
     border-radius: 10%;
 
     @include breakpoint($x-large) {
-      padding: 5px;
-      border: 1px solid var(--global-border-color);
+      padding: 0;
+      border: 0;
     }
   }
 }
