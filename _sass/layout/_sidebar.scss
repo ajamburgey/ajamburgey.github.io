@@ -157,7 +157,7 @@
     max-width: 175px;
     border-radius: 5%;
 
-    @include breakpoint($large) {
+    @include breakpoint($x-large) {
       padding: 5px;
       border: 1px solid var(--global-border-color);
     }
