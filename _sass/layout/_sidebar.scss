@@ -180,16 +180,17 @@
 }
 
 .author__name {
-  margin: 0;
+  margin: 0 0 1rem 0; /* increase spacing below the name so location sits lower */
+  font-size: $type-size-4;
 
   @include breakpoint($large) {
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 1rem; /* keep the same spacing on large screens */
   }
 }
 .sidebar .author__name {
   font-family: $sans-serif;
-  font-size: $type-size-5;
+  font-size: $type-size-4;
 }
 
 .sidebar .author__desktop {
@@ -225,15 +226,17 @@
   z-index: 10;
   position: relative;
   cursor: pointer;
+  margin-top: 0.5rem; /* push the follow block down a bit */
+
+  @include breakpoint($large) {
+    display: block;
+    margin-top: 1rem;
+  }
 
   li:last-child {
     a {
       margin-bottom: 0;
     }
-  }
-
-  @include breakpoint($large) {
-    display: block;
   }
 
   button {
@@ -304,7 +307,7 @@
   }
 
   li {
-    white-space: nowrap;
+    white-space: normal; /* allow wrapping so long org names don't cause horizontal scroll */
   }
 
   a {
@@ -316,6 +319,8 @@
     color: inherit;
     font-size: $type-size-5;
     text-decoration: none;
+    word-break: break-word;
+    overflow-wrap: anywhere;
 
     &:hover {
       text-decoration: underline;
