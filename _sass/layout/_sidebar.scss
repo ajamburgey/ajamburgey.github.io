@@ -251,15 +251,14 @@
 
 .author__urls {
   display: none;
-  position: absolute;
-  right: 0;
+  position: relative; /* changed from absolute so it flows with the content and requires scrolling */
   margin-top: 15px;
   padding: 10px;
   list-style-type: none;
   border: 1px solid var(--global-border-color);
   border-radius: $border-radius;
   background: var(--global-bg-color);
-  z-index: -1;
+  z-index: 0;
   box-shadow: 0 0 10px rgba(#000, 0.25);
   cursor: default;
 
