@@ -27,6 +27,11 @@
   }
 }
 
+/* when a page hides its title, line the first heading up with the sidebar */
+.archive > h2:first-child {
+  margin-top: 0;
+}
+
 .archive__subtitle {
   margin: 1.414em 0 0;
   padding-bottom: 0.5em;
