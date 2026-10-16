@@ -22,7 +22,7 @@ support to the financial accelerator mechanism proposed by Bernanke et al.
 #paperurl: '/files/Household_Composition_09_19_2026.pdf'
 # slidesurl: '/files/my-slides.pdf'
 # bibtexurl: '/files/my-paper.bib'
-citation: The Review of Economics and Statistics (Forthcoming)'
+venue: 'accepted at The Review of Economics and Statistics'
 link: '/files/RTNFCI_CofGAR.pdf'
        # makes the title link here instead of to this paper's own page
 ---

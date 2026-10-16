@@ -9,7 +9,7 @@ category: working_papers   # working_papers | publications | work_in_progress
 permalink: /research/YYYY-MM-DD-short-name
 date: YYYY-MM-DD
 excerpt: 'One- or two-sentence summary shown under the title.'
-# venue: 'Journal Name'     # publications only; shows "Published in <venue>, <year>"
+# venue: 'Journal Name'     # shown in italics after the title: "Title, <i>Journal Name</i>"
 # paperurl: '/files/my-paper.pdf'
 # slidesurl: '/files/my-slides.pdf'
 # bibtexurl: '/files/my-paper.bib'

@@ -248,3 +248,10 @@
     }
   }
 }
+
+/* "Title, Venue" on Research entries: venue in plain italic text, not styled like the title link */
+.archive__item-venue {
+  font-family: $global-font-family;
+  font-weight: normal;
+  color: var(--global-text-color);
+}
