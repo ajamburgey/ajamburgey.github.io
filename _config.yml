@@ -23,7 +23,7 @@ repository               : "ajamburgey/ajamburgey.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile_pic.jpeg"
+  avatar           : "Profile Pic.JPG"
   name             : "Aaron Amburgey"
   pronouns         : # example: "she/her"  
   bio              : #"Short biography for the left-hand sidebar"
