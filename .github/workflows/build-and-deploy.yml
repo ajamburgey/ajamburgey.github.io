@@ -1,12 +1,11 @@
-name: Build and deploy (Jekyll + Dart Sass)
+name: Build and deploy (Jekyll + Dart Sass -> gh-pages)
 
 on:
   push:
     branches: [ "master" ]
 
 permissions:
-  contents: read
-  pages: write
+  contents: write    # required so the GITHUB_TOKEN can push the gh-pages branch
   id-token: write
 
 concurrency:
@@ -17,6 +16,8 @@ jobs:
   build:
     name: Build site
     runs-on: ubuntu-latest
+    outputs:
+      site_path: _site
 
     steps:
       - name: Checkout repository
@@ -56,16 +57,15 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: ./_site
-
   deploy:
-    name: Deploy to GitHub Pages
+    name: Deploy to gh-pages
     needs: build
     runs-on: ubuntu-latest
-
     steps:
-      - name: Deploy
-        uses: actions/deploy-pages@v1
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          publish_dir: ./_site
+          publish_branch: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
