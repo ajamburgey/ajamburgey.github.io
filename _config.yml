@@ -92,7 +92,7 @@ publication_category:
   conferences:
     title: 'Conference Papers'
 
-# Text of the [link] to each paper's pdf on the Research page. A paper can use
+# Text of the link to each paper's pdf on the Research page. A paper can use
 # different text by adding `pdf_label: '...'` to its front matter.
 research_pdf_label: "working paper"
 

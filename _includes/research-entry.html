@@ -12,8 +12,9 @@
 
   {% if post.pdf or post.slides %}
     <p class="research-entry__links">
-      {% if post.pdf %}[<a href="{% unless post.pdf contains '://' %}{{ base_path }}{% endunless %}{{ post.pdf }}">{{ pdf_label }}</a>]{% endif %}
-      {% if post.slides %}[<a href="{% unless post.slides contains '://' %}{{ base_path }}{% endunless %}{{ post.slides }}">Slides</a>]{% endif %}
+      {% if post.pdf %}<a href="{% unless post.pdf contains '://' %}{{ base_path }}{% endunless %}{{ post.pdf }}">{{ pdf_label }}</a>{% endif %}
+      {% if post.pdf and post.slides %} | {% endif %}
+      {% if post.slides %}<a href="{% unless post.slides contains '://' %}{{ base_path }}{% endunless %}{{ post.slides }}">Slides</a>{% endif %}
     </p>
   {% endif %}
 
