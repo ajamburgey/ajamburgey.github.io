@@ -36,6 +36,23 @@
   }
 }
 
+/* Pages without the author sidebar (everything but the homepage): start the
+   content at the left edge, in line with the menu, instead of leaving an empty
+   sidebar column */
+#main:not(:has(> .sidebar)) {
+  .page,
+  .archive {
+    @include breakpoint($large) {
+      float: none;
+      width: 100%;
+      max-width: 900px;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
 .page__title {
   margin-top: 0;
   line-height: 1;
