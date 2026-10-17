@@ -239,7 +239,7 @@ collections:
     output: true
     permalink: /:collection/:path/
   research:
-    output: true
+    output: false   # papers are listed on /research/ only, with no page of their own
     permalink: /:collection/:path/
   portfolio:
     output: true

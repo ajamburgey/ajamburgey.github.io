@@ -250,9 +250,52 @@
   }
 }
 
-/* "Title, Venue" on Research entries: venue in plain italic text, not styled like the title link */
-.archive__item-venue {
-  font-family: $global-font-family;
-  font-weight: normal;
-  color: var(--global-text-color);
+/* Research page entries (_includes/research-entry.html): bold title, italic
+   venue, [PDF] link, and an "Abstract" toggle, with a rule between papers */
+.research-entry {
+  padding: 1.25em 0;
+  border-bottom: 1px solid var(--global-border-color);
+
+  p {
+    margin: 0 0 0.5em;
+  }
+
+  &__abstract {
+    summary {
+      display: inline-block;
+      font-style: italic;
+      cursor: pointer;
+      list-style: none;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      /* chevron that points down when closed and up when open */
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 0.45em;
+        height: 0.45em;
+        margin-left: 0.6em;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: translateY(-0.2em) rotate(45deg);
+        transition: transform 0.15s ease;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &[open] summary::after {
+      transform: translateY(0.05em) rotate(-135deg);
+    }
+
+    p {
+      margin: 0.5em 0 0;
+      font-size: $type-size-5;
+    }
+  }
 }

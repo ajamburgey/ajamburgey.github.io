@@ -1,14 +1,9 @@
 ---
-# Starter for a new Research entry. Jekyll skips files starting with "_", so
-# this one never appears on the site. To add a paper, copy it to
-# YYYY-MM-DD-short-name.md (the date sets the order: newest first in each
-# section) and fill in what applies. Delete any field you don't need.
 title: "Growth-at-Risk is Investment-at-Risk (with Michael W. McCracken)"
 collection: research
 category: publications   # working_papers | publications | work_in_progress
-permalink: /research/rtnfci-cofgar
 date: 2026-03-31
-excerpt: 'We investigate the role financial conditions play in the composition of U.S.
+abstract: 'We investigate the role financial conditions play in the composition of U.S.
 growth-at-risk. We document that, by a wide margin, growth-at-risk is
 investment-at-risk. That is, if financial conditions indicate U.S. real GDP
 growth will be in the lower tail of its conditional distribution, we know
@@ -18,13 +13,6 @@ exports do not play a role. We show that leverage plays a key role
 in determining both consumption- and investment-at-risk, which provides
 support to the financial accelerator mechanism proposed by Bernanke et al.
 (1999).'
-# venue: 'Journal Name'     # publications only; shows "Published in <venue>, <year>"
-#paperurl: '/files/Household_Composition_09_19_2026.pdf'
-# slidesurl: '/files/my-slides.pdf'
-# bibtexurl: '/files/my-paper.bib'
 venue: 'accepted at The Review of Economics and Statistics'
-link: '/files/RTNFCI_CofGAR_03_31_26.pdf'
-       # makes the title link here instead of to this paper's own page
+pdf: '/files/RTNFCI_CofGAR_03_31_26.pdf'
 ---
-
-Anything here becomes the paper's own page (for example, the full abstract).

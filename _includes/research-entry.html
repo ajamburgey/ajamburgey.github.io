@@ -1,0 +1,25 @@
+{% comment %}
+  One paper on the Research page. Front matter fields used (all optional but title):
+    title, venue (italic, after the title), pdf, slides, abstract (collapsible)
+{% endcomment %}
+{% include base_path %}
+
+<div class="research-entry">
+  <p class="research-entry__title">
+    <strong>{{ post.title | markdownify | remove: "<p>" | remove: "</p>" | strip }}</strong>{% if post.venue %}, <i>{{ post.venue }}</i>{% endif %}
+  </p>
+
+  {% if post.pdf or post.slides %}
+    <p class="research-entry__links">
+      {% if post.pdf %}[<a href="{% unless post.pdf contains '://' %}{{ base_path }}{% endunless %}{{ post.pdf }}">PDF</a>]{% endif %}
+      {% if post.slides %}[<a href="{% unless post.slides contains '://' %}{{ base_path }}{% endunless %}{{ post.slides }}">Slides</a>]{% endif %}
+    </p>
+  {% endif %}
+
+  {% if post.abstract %}
+    <details class="research-entry__abstract">
+      <summary>Abstract</summary>
+      {{ post.abstract | markdownify }}
+    </details>
+  {% endif %}
+</div>
