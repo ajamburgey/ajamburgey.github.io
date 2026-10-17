@@ -92,6 +92,10 @@ publication_category:
   conferences:
     title: 'Conference Papers'
 
+# Text of the [link] to each paper's pdf on the Research page. A paper can use
+# different text by adding `pdf_label: '...'` to its front matter.
+research_pdf_label: "working paper"
+
 # Section headings on the Research page, in the order they appear. Each entry
 # in _research/ picks its section with `category: <key>` in its front matter.
 research_category:

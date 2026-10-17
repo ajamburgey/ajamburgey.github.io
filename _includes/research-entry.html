@@ -1,7 +1,8 @@
 {% comment %}
   One paper on the Research page. Front matter fields used (all optional but title):
-    title, venue (italic, after the title), pdf, slides, abstract (collapsible)
+    title, venue (italic, after the title), pdf, pdf_label, slides, abstract (collapsible)
 {% endcomment %}
+{% assign pdf_label = post.pdf_label | default: site.research_pdf_label | default: "PDF" %}
 {% include base_path %}
 
 <div class="research-entry">
@@ -11,7 +12,7 @@
 
   {% if post.pdf or post.slides %}
     <p class="research-entry__links">
-      {% if post.pdf %}[<a href="{% unless post.pdf contains '://' %}{{ base_path }}{% endunless %}{{ post.pdf }}">PDF</a>]{% endif %}
+      {% if post.pdf %}[<a href="{% unless post.pdf contains '://' %}{{ base_path }}{% endunless %}{{ post.pdf }}">{{ pdf_label }}</a>]{% endif %}
       {% if post.slides %}[<a href="{% unless post.slides contains '://' %}{{ base_path }}{% endunless %}{{ post.slides }}">Slides</a>]{% endif %}
     </p>
   {% endif %}
