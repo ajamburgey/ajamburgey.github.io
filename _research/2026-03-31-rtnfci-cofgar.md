@@ -1,5 +1,6 @@
 ---
-title: "Growth-at-Risk is Investment-at-Risk (with Michael W. McCracken)"
+title: "Growth-at-Risk is Investment-at-Risk"
+coauthors: [Michael W. McCracken]
 collection: research
 category: publications   # working_papers | publications | work_in_progress
 date: 2026-03-31

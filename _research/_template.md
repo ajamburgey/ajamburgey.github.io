@@ -3,7 +3,8 @@
 # this one never appears on the site. To add a paper, copy it to
 # YYYY-MM-DD-short-name.md (the date sets the order: newest first in each
 # section), fill in what applies, and delete the lines you don't need.
-title: "Paper Title (with Coauthor Name)"
+title: "Paper Title"
+coauthors: [Coauthor One, Coauthor Two]  # add their websites in _data/coauthors.yml
 category: working_papers   # working_papers | publications | work_in_progress
 date: YYYY-MM-DD
 venue: 'Journal Name'      # shown in italics after the title

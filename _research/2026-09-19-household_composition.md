@@ -1,5 +1,6 @@
 ---
-title: "Household Composition and the Transmission of Aggregate Shocks (with Ramya Raghavan)"
+title: "Household Composition and the Transmission of Aggregate Shocks"
+coauthors: [Ramya Raghavan]
 collection: research
 category: working_papers   # working_papers | publications | work_in_progress
 date: 2026-09-19
