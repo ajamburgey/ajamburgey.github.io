@@ -17,17 +17,18 @@
     margin-top: 1em;
   }
 
+  // greedy-navigation.js adds masthead-height padding meant for a fixed
+  // sidebar; this sidebar is never fixed, so drop it at every width
+  padding-top: 0 !important;
+
   // Stick just below the masthead while scrolling, but stay inside #main so the
   // footer pushes the sidebar up instead of covering it
-  @media screen and (min-width: $sidebar-screen-min-width) {
+  @include breakpoint($large) {
     position: -webkit-sticky;
     position: sticky;
     top: calc(#{$masthead-height} + 1em);
     max-height: calc(100vh - #{$masthead-height} - 1em);
     overflow-y: auto;               // Add scrollbar if the sidebar is too long
-    // greedy-navigation.js adds masthead-height padding for a fixed sidebar;
-    // a sticky sidebar is already below the masthead, so drop it
-    padding-top: 0 !important;
   }
 
   @include breakpoint($large) {
@@ -151,16 +152,14 @@
    ========================================================================== */
 
 .author__avatar {
-  display: table-cell;
-  vertical-align: top;
-  width: 36px;
-  // set width only, for non-square avatars
-  // height: 36px;
+  // narrow screens: photo on its own row above the name and Follow button
+  display: block;
+  max-width: 280px;
+  margin-bottom: 0.5em;
 
   @include breakpoint($large) {
-    display: block;
-    width: auto;
-    height: auto;
+    max-width: none;
+    margin-bottom: 0;
   }
 
   img {
@@ -169,7 +168,7 @@
 
     // On short windows, shrink the photo so the whole sticky sidebar,
     // including the links below the photo, fits on screen
-    @media screen and (min-width: $sidebar-screen-min-width) {
+    @include breakpoint($large) {
       width: auto;
       max-height: calc(100vh - 300px);
     }
@@ -184,7 +183,7 @@
 .author__content {
   display: table-cell;
   vertical-align: top;
-  padding-left: 15px;
+  padding-left: 0;
   padding-right: 25px;
   line-height: 1;
 
@@ -212,7 +211,7 @@
 
 .sidebar .author__desktop {
   display: none;
-  @media screen and (min-width: 1024px) {
+  @include breakpoint($large) {
     display: block;
   }
 }
@@ -271,6 +270,9 @@
   right: 0;
   margin-top: 15px;
   padding: 10px;
+  // as wide as its links (not just the Follow button), within the screen
+  width: max-content;
+  max-width: calc(100vw - 2em);
   list-style-type: none;
   border: 1px solid var(--global-border-color);
   border-radius: $border-radius;
@@ -282,6 +284,8 @@
   @include breakpoint($large) {
     display: block;
     position: relative;
+    width: auto;
+    max-width: none;
     margin: 0;
     padding: 0;
     border: 0;
@@ -294,7 +298,7 @@
     content: "";
     position: absolute;
     top: -11px;
-    left: calc(50% - 10px);
+    right: 21px; // under the Follow button, which the menu is right-aligned to
     width: 0;
     border-style: solid;
     border-width: 0 10px 10px;
@@ -311,7 +315,7 @@
     content: "";
     position: absolute;
     top: -10px;
-    left: calc(50% - 10px);
+    right: 21px; // under the Follow button, which the menu is right-aligned to
     width: 0;
     border-style: solid;
     border-width: 0 10px 10px;
