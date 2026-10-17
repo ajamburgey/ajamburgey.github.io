@@ -10,6 +10,7 @@ date: YYYY-MM-DD
 venue: 'Journal Name'      # shown in italics after the title
 pdf: '/files/my-paper.pdf' # shows a [working paper] link
 pdf_label: 'published version'  # optional: different link text for this paper only
+replication: '/files/replication/my-paper.zip'  # shows a [replication files] link
 slides: '/files/my-slides.pdf'  # shows a [Slides] link
 abstract: 'Shown when the reader clicks "Abstract".'
 ---

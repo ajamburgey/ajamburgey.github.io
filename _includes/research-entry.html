@@ -1,10 +1,12 @@
 {% comment %}
   One paper on the Research page. Front matter fields used (all optional but title):
     title, coauthors (list; names in _data/coauthors.yml become links),
-    venue (italic, after the title), pdf, pdf_label, slides, abstract (collapsible)
+    venue (italic, after the title), pdf, pdf_label, replication, replication_label,
+    slides, abstract (collapsible)
 {% endcomment %}
 {% capture coauthors %}{% for name in post.coauthors %}{% if forloop.first %}{% elsif forloop.last %}{% if forloop.length > 2 %},{% endif %} and {% else %}, {% endif %}{% assign url = site.data.coauthors[name] %}{% if url %}<a class="research-entry__coauthor" href="{{ url }}">{{ name }}</a>{% else %}{{ name }}{% endif %}{% endfor %}{% endcapture %}
 {% assign pdf_label = post.pdf_label | default: site.research_pdf_label | default: "PDF" %}
+{% assign replication_label = post.replication_label | default: site.research_replication_label | default: "replication files" %}
 {% include base_path %}
 
 <div class="research-entry">
@@ -12,9 +14,10 @@
     <strong>{{ post.title | markdownify | remove: "<p>" | remove: "</p>" | strip }}{% if post.coauthors %} (with {{ coauthors }}){% endif %}</strong>{% if post.venue %}, <i>{{ post.venue }}</i>{% endif %}
   </p>
 
-  {% if post.pdf or post.slides %}
+  {% if post.pdf or post.replication or post.slides %}
     <p class="research-entry__links">
       {% if post.pdf %}<a href="{% unless post.pdf contains '://' %}{{ base_path }}{% endunless %}{{ post.pdf }}">[{{ pdf_label }}]</a>{% endif %}
+      {% if post.replication %}<a href="{% unless post.replication contains '://' %}{{ base_path }}{% endunless %}{{ post.replication }}">[{{ replication_label }}]</a>{% endif %}
       {% if post.slides %}<a href="{% unless post.slides contains '://' %}{{ base_path }}{% endunless %}{{ post.slides }}">[Slides]</a>{% endif %}
     </p>
   {% endif %}

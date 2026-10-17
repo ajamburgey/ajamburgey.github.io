@@ -96,6 +96,10 @@ publication_category:
 # different text by adding `pdf_label: '...'` to its front matter.
 research_pdf_label: "working paper"
 
+# Text of the link to a paper's replication package (shown only for papers
+# with `replication: '...'`). A paper can override it with `replication_label:`.
+research_replication_label: "replication files"
+
 # Section headings on the Research page, in the order they appear. Each entry
 # in _research/ picks its section with `category: <key>` in its front matter.
 research_category:

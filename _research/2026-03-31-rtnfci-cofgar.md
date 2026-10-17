@@ -16,4 +16,5 @@ support to the financial accelerator mechanism proposed by Bernanke et al.
 (1999).'
 venue: 'accepted at The Review of Economics and Statistics'
 pdf: '/files/RTNFCI_CofGAR_03_31_26.pdf'
+replication: '/files/replication/RTNFCI_CofGAR.zip'
 ---
