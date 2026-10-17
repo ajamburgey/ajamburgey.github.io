@@ -7,8 +7,8 @@ title: "Paper Title (with Coauthor Name)"
 category: working_papers   # working_papers | publications | work_in_progress
 date: YYYY-MM-DD
 venue: 'Journal Name'      # shown in italics after the title
-pdf: '/files/my-paper.pdf' # shows a "working paper" link
+pdf: '/files/my-paper.pdf' # shows a [working paper] link
 pdf_label: 'published version'  # optional: different link text for this paper only
-slides: '/files/my-slides.pdf'  # shows a "Slides" link
+slides: '/files/my-slides.pdf'  # shows a [Slides] link
 abstract: 'Shown when the reader clicks "Abstract".'
 ---
