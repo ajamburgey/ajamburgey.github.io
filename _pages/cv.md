@@ -6,6 +6,7 @@ permalink: /cv/
 author_profile: false
 redirect_from:
   - /resume
+redirect_to: /files/Curriculum_Vitae.pdf  # the CV is now the pdf; old links to /cv/ go there
 ---
 
 {% include base_path %}
